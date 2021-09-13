@@ -1,0 +1,7 @@
+name: MTPlayerCount
+main: teammt.mtplayercount.main.MTPlayerCount
+version: '1.0'
+author: TeamMT
+commands:
+  mtplayers:
+    usage: /<command>

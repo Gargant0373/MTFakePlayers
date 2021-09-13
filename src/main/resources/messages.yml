@@ -1,0 +1,13 @@
+prefix: "&8\u2758 &c&lMTFakePlayers &8\u2758 "
+messages:
+   plugin:
+     no-permission: "&cYou are not allowed to do that."
+     doing:
+       adding-players: "&aAdding %players% players with a %seconds% second delay."
+       removing-players: "&aRemoving %players% players with a %seconds% second delay."
+     error:
+       invalid-playercount: "&4%players% &cis not a valid number of players to add."
+       invalid-delay: "&4%delay% &cis not a valid number for the delay."
+     success:
+       added-players: "&aAll players have been added!"
+       removed-players: "&aRemoved players!"
