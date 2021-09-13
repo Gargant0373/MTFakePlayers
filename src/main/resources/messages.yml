@@ -8,6 +8,7 @@ messages:
      error:
        invalid-playercount: "&4%players% &cis not a valid number of players to add."
        invalid-delay: "&4%delay% &cis not a valid number for the delay."
+       negative-delay: "&cDelay must be a positive number!"
      success:
        added-players: "&aAll players have been added!"
        removed-players: "&aRemoved players!"
