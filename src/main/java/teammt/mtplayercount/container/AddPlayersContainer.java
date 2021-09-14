@@ -61,6 +61,12 @@ public class AddPlayersContainer extends ImmutableContainer {
 			return;
 		}
 
+		if (event.getSlot() == 43) {
+			this.playercount.setAddedPlayers(0);
+			p.playSound(p.getLocation(), Sound.ENTITY_ARROW_HIT_PLAYER, 0.8f, 1);
+			return;
+		}
+
 		if (!event.getCurrentItem().getType().equals(Material.WOOL))
 			return;
 
@@ -125,10 +131,23 @@ public class AddPlayersContainer extends ImmutableContainer {
 
 		inv.setItem(31, this.getGenerate());
 
+		inv.setItem(43, this.getAddedPlayers());
+
 		inv = this.applyMarginalBars(inv);
 		inv.setItem(49, this.getInventoryClose());
 
 		return inv;
+	}
+
+	private ItemStack getAddedPlayers() {
+		ItemStack s = new ItemStack(Material.REDSTONE);
+		ItemMeta m = s.getItemMeta();
+		m.setDisplayName(ChatColor.YELLOW + "Added Players");
+		m.setLore(
+				Arrays.asList("", ChatColor.YELLOW + "Amount: " + ChatColor.WHITE + this.playercount.getAddedPlayers(),
+						"", ChatColor.GRAY + "Click to set to 0!"));
+		s.setItemMeta(m);
+		return s;
 	}
 
 	private ItemStack getDelay() {
@@ -192,12 +211,6 @@ public class AddPlayersContainer extends ImmutableContainer {
 			// empty catch block
 		}
 		theMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', "&aAdd Players!"));
-		ArrayList<String> thelore = new ArrayList<String>();
-		thelore.add(" ");
-		thelore.add(ChatColor.translateAlternateColorCodes('&',
-				"&7Current added players: &f" + this.playercount.getAddedPlayers()));
-		thelore.add(" ");
-		theMeta.setLore(thelore);
 		result.setItemMeta(theMeta);
 		return result;
 	}

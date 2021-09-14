@@ -22,7 +22,6 @@ public class PlayercountManagement {
 
 			unparsedPlayers = unparsedPlayers.replace("%players%", Bukkit.getOnlinePlayers().size() + "");
 
-			System.out.println(unparsedPlayers);
 			try {
 				playerNumber = Integer.parseInt(unparsedPlayers);
 			} catch (NumberFormatException e) {
@@ -73,6 +72,10 @@ public class PlayercountManagement {
 
 	public int getAddedPlayers() {
 		return this.playersAdded;
+	}
+
+	public void setAddedPlayers(int number) {
+		this.playersAdded = number;
 	}
 
 	public void setOnlinePlayers(String value) {

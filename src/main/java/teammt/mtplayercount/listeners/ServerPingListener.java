@@ -34,8 +34,14 @@ public class ServerPingListener extends Registerable {
 	}
 
 	private void handlePing(WrappedServerPing ping) {
+		if (!isEnabled())
+			return;
 		ping.setPlayersMaximum(playercount.getMaximumPlayers());
 		ping.setPlayersOnline(playercount.getOnlinePlayers());
+	}
+
+	private boolean isEnabled() {
+		return lib.getConfigurationAPI().getConfig().getBoolean("enabled");
 	}
 
 }

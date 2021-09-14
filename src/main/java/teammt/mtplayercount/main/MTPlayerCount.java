@@ -6,6 +6,7 @@ import masecla.mlib.main.MLib;
 import teammt.mtplayercount.classes.PlayercountManagement;
 import teammt.mtplayercount.commands.MTPlayersCommand;
 import teammt.mtplayercount.container.AddPlayersContainer;
+import teammt.mtplayercount.container.SettingsContainer;
 import teammt.mtplayercount.listeners.ServerPingListener;
 
 public class MTPlayerCount extends JavaPlugin {
@@ -21,6 +22,7 @@ public class MTPlayerCount extends JavaPlugin {
 
 		// Register Containers
 		new AddPlayersContainer(lib, playercount).register();
+		new SettingsContainer(lib, playercount).register();
 
 		// Register Commands
 		new MTPlayersCommand(lib, playercount).register();

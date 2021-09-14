@@ -13,6 +13,7 @@ import masecla.mlib.main.MLib;
 import teammt.mtplayercount.classes.DelayedPlayerAdding;
 import teammt.mtplayercount.classes.PlayercountManagement;
 import teammt.mtplayercount.container.AddPlayersContainer;
+import teammt.mtplayercount.container.SettingsContainer;
 
 @RequiresPlayer
 @RegisterableInfo(command = "mtplayers")
@@ -111,6 +112,24 @@ public class MTPlayersCommand extends Registerable {
 		new DelayedPlayerAdding(lib, 0, -players, playercount, p).register();
 		lib.getMessagesAPI().sendMessage("doing.removing-players", p, new Replaceable("%players%", -players),
 				new Replaceable("%seconds%", delay));
+	}
+
+	@SubcommandInfo(subcommand = "help", permission = "mtplayers.admin.help")
+	public void sendHelp(Player p) {
+		lib.getMessagesAPI().sendMessage("help", p);
+	}
+
+	@SubcommandInfo(subcommand = "settings", permission = "mtplayers.admin.settings")
+	public void openSettingsContainer(Player p) {
+		lib.getContainerAPI().openFor(p, SettingsContainer.class);
+	}
+
+	@SubcommandInfo(subcommand = "toggle", permission = "mtplayers.admin.toggle")
+	public void toggleEnabled(Player p) {
+		String path = "enabled";
+		boolean enabled = lib.getConfigurationAPI().getConfig().getBoolean(path, true);
+		lib.getConfigurationAPI().getConfig().set(path, !enabled);
+		lib.getMessagesAPI().sendMessage("success.toggle-" + !enabled, p);
 	}
 
 	@Override

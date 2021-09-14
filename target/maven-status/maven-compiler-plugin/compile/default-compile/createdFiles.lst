@@ -4,4 +4,5 @@ teammt\mtplayercount\listeners\ServerPingListener.class
 teammt\mtplayercount\listeners\ServerPingListener$1.class
 teammt\mtplayercount\container\AddPlayersContainer.class
 teammt\mtplayercount\classes\DelayedPlayerAdding.class
+teammt\mtplayercount\container\SettingsContainer.class
 teammt\mtplayercount\main\MTPlayerCount.class
