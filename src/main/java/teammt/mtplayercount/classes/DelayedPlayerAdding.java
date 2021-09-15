@@ -34,11 +34,11 @@ public class DelayedPlayerAdding {
 		if (playerCount == 0)
 			return;
 		if (playerCount > 0) {
-			playercount.incrementOnlinePlayers(1);
+			playercount.decrementOnlinePlayers();
 			this.playerCount--;
 		} else {
 			this.playerCount++;
-			playercount.incrementOnlinePlayers(-1);
+			playercount.incrementOnlinePlayers();
 		}
 		if (playerCount != 0) {
 			Bukkit.getScheduler().scheduleSyncDelayedTask(lib.getPlugin(), () -> {

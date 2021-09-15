@@ -86,7 +86,11 @@ public class PlayercountManagement {
 		lib.getConfigurationAPI().getConfig().set("maximum-players", value);
 	}
 
-	public void incrementOnlinePlayers(int amount) {
-		this.playersAdded += amount;
+	public void incrementOnlinePlayers() {
+		this.playersAdded++;
+	}
+
+	public void decrementOnlinePlayers() {
+		this.playersAdded--;
 	}
 }
