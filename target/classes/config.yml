@@ -1,3 +1,0 @@
-enabled: true
-maximum-players: 20 # Supports basic mathematical expressions (+, -, *, /), use %players% as a placeholder for player count.
-online-players: 69 # Supports basic mathematical expressions (+, -, *, /), use %players% as a placeholder for player count.
